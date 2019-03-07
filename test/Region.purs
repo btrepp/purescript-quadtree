@@ -1,22 +1,22 @@
-module QuadTree.Test.Point where
+module Data.QuadTree.Test.Region where
 
 import Prelude
-import Test.Unit(TestSuite,suite,test)
+import Test.Unit (TestSuite,suite,test)
 import Test.Unit.Assert as Assert
-import Data.QuadTree.Point (PointQuadTree(..),depth)
+import Data.QuadTree.Region (QuadTree(..),depth)
 
-pointSuite:: TestSuite
-pointSuite = 
-    suite "Point" 
+tests:: TestSuite
+tests = 
+    suite "Region" 
         do depthSuite
 
-trueLeaf :: PointQuadTree
+trueLeaf :: QuadTree
 trueLeaf = Leaf true
 
-quad :: PointQuadTree
+quad :: QuadTree
 quad = Node trueLeaf trueLeaf trueLeaf trueLeaf
 
-quadOfQuad :: PointQuadTree
+quadOfQuad :: QuadTree
 quadOfQuad = Node trueLeaf trueLeaf trueLeaf quad
 
 depthSuite :: TestSuite
